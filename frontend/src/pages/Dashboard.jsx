@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getStat, getDailyStreak } from "../utils/stats";
+import SpeakingGraph from "./SpeakingGraph";
 
 
 const Dashboard = () => {
@@ -56,7 +57,7 @@ useEffect(() => {
 from-purple-600 to-red-400 
 dark:from-gray-900 dark:to-gray-800 
 p-6 text-white transition duration-300">      
-<h1 className="text-3xl font-bold mb-6 text-center">Your Dashboard 🚀</h1>
+<h1 className="text-3xl font-bold mb-6 text-center">Hi 👋,Welcome to your Your Dashboard 🚀</h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-5xl mx-auto">
         <div className="bg-white/10 backdrop-blur p-6 rounded-2xl shadow-lg text-center hover:scale-105 transition">
@@ -78,8 +79,13 @@ p-6 text-white transition duration-300">
           <p className="text-sm opacity-80">🎯 Quiz Attempts</p>
           <h2 className="text-4xl font-bold mt-2">{stats.quizAttempts}</h2>
         </div>
+       
       </div>
+       <div className="mt-10">
+      <SpeakingGraph/>
     </div>
+    </div>
+    
      </div>
   );
 };

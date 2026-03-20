@@ -153,9 +153,9 @@ const Profile = () => {
         }}
         className="mt-6 w-full bg-red-500 hover:bg-red-600 transition text-white py-2.5 rounded-md font-medium"
       >
-        Logout
+        Logout 
       </button>
-    </div>
+    </div> 
   );
 };
 

@@ -80,9 +80,31 @@ export default function Practice() {
 
           setRobotReply(res.data.reply);
           // incStat("practiceCount", 1); // 👈 practice session count
-          incStat("practiceCount");
-          // updateDailyStreak();
-          updateDailyStreak(); // 👈 daily streak update
+          // incStat("practiceCount");
+          // // updateDailyStreak();
+          // updateDailyStreak(); // 👈 daily streak update
+          setRobotReply(res.data.reply);
+
+// ✅ SAVE SCORE
+const finalScore = transcript.length > 20 ? 80 : 50;
+const user = JSON.parse(localStorage.getItem("dreamhubUser"));
+
+await fetch("http://localhost:8000/api/practice/save-score", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    userId: user._id,
+    score: finalScore,
+  }),
+});
+
+console.log("Score saved:", finalScore);
+
+// existing stats
+incStat("practiceCount");
+updateDailyStreak();
           const newStreak = updateDailyStreak();
           window.dispatchEvent(
             new CustomEvent("streakUpdated", { detail: newStreak }),
